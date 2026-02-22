@@ -16,6 +16,8 @@ public class ProControllerUINavigation : MonoBehaviour
     [Header("In Game")]
     [SerializeField] private InGameUI inGameUI;
 
+    [SerializeField] private PauseMenu pauseMenu;
+
     private SwitchControllerHID _controller;
     private MoveDirection _lastMoveDir = MoveDirection.None;
     private float _repeatTimer;
@@ -54,10 +56,11 @@ public class ProControllerUINavigation : MonoBehaviour
         if (_controller == null || EventSystem.current == null) return;
 
         // クリア画面表示中はメニュー状態と同様に操作を有効にする
-        bool menuOrClearVisible = (stageSelectMenu != null && stageSelectMenu.IsVisible)
-                               || (inGameUI != null && inGameUI.IsClearScreenVisible);
+        bool menuOrClearOrPauseVisible = (stageSelectMenu != null && stageSelectMenu.IsVisible)
+                              || (inGameUI != null && inGameUI.IsClearScreenVisible)
+                              || (pauseMenu != null && pauseMenu.IsPaused);
 
-        if (menuOrClearVisible)
+        if (menuOrClearOrPauseVisible)
         {
             if (_controller.buttonSouth.wasPressedThisFrame)
             {

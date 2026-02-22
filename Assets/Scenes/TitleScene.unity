@@ -7022,6 +7022,7 @@ MonoBehaviour:
   stickSensitivity: 0.5
   stageSelectMenu: {fileID: 1311287724}
   inGameUI: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &2097006158
 GameObject:
   m_ObjectHideFlags: 0

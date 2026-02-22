@@ -31,6 +31,8 @@ public class InGameManager : MonoBehaviour
 
     public float CurrentTime => _timer;
 
+    public bool IsCleared => _isCleared;
+
     private void Start()
     {
         // ゲーム開始時はジャイロ操作を無効化
@@ -68,7 +70,7 @@ public class InGameManager : MonoBehaviour
 
         _timer += Time.deltaTime;
         onTimerUpdated.Invoke(_timer);
-        Debug.Log($"[InGameManager] Timer: {_timer:F2} isRunning={_isRunning}");
+        // Debug.Log($"[InGameManager] Timer: {_timer:F2} isRunning={_isRunning}");
     }
 
     /// <summary>
